@@ -1,0 +1,155 @@
+﻿@{
+    ViewData["Title"] = "Employee List";
+}
+
+<style>
+    .page-title {
+        color: #1B3A6B;
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+
+    .sub-text {
+        color: #6B7284;
+        margin-bottom: 20px;
+    }
+
+    /* FILTER BOX */
+    .filter-box {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+    select {
+        padding: 8px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+    }
+
+    /* BUTTONS */
+    .btn {
+        padding: 8px 14px;
+        border-radius: 6px;
+        border: none;
+        cursor: pointer;
+        font-weight: 500;
+        text-decoration: none;
+        display: inline-block;
+        transition: 0.3s;
+    }
+
+    .btn-filter {
+        background-color: #1B3A6B;
+        color: white;
+    }
+
+    .btn-filter:hover {
+        background-color: #0f2445;
+            color: white;
+    }
+
+    .btn-reset {
+        background-color: #6B7284;
+        color: white;
+    }
+
+    .btn-reset:hover {
+        background-color: #4b5563;
+            color: white;
+    }
+
+    .btn-view {
+        background-color: #1B3A6B;
+        color: white;
+        padding: 6px 12px;
+        border-radius: 6px;
+    }
+
+    .btn-view:hover {
+            background-color: #2C5AA0;
+            color: white;
+    }
+
+    /* TABLE */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        background: white;
+    }
+
+    th {
+        background-color: #1B2A6B;
+        color: white;
+        padding: 12px;
+        text-align: left;
+    }
+
+    td {
+        padding: 12px;
+        border-bottom: 1px solid #E5E7EB;
+    }
+
+    tr:hover {
+        background-color: #f9fafb;
+    }
+</style>
+
+<div>
+
+    <h2 class="page-title">Employee List</h2>
+
+    <p class="sub-text">
+        Total Employees: <strong>@Model.Count</strong>
+    </p>
+
+    <!-- FILTER -->
+    <form method="get" class="filter-box">
+
+        <select name="department">
+            <option value="">All Departments</option>
+            <option value="HR">HR</option>
+            <option value="IT">IT</option>
+            <option value="Finance">Finance</option>
+            <option value="Marketing">Marketing</option>
+        </select>
+
+        <button type="submit" class="btn btn-filter">Filter</button>
+
+        <a href="/Employee/Index" class="btn btn-reset">Reset</a>
+
+    </form>
+
+    <!-- TABLE -->
+    <table>
+
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Department</th>
+            <th>Salary</th>
+            <th>Action</th>
+        </tr>
+
+        @foreach (var employee in Model)
+        {
+            <tr>
+                <td>@employee.Id</td>
+                <td>@employee.Name</td>
+                <td>@employee.Department</td>
+                <td>@employee.Salary</td>
+
+                <td>
+                    <a asp-action="Details"
+                       asp-route-id="@employee.Id"
+                       class="btn btn-view">
+                        View Details
+                    </a>
+                </td>
+            </tr>
+        }
+
+    </table>
+
+</div>

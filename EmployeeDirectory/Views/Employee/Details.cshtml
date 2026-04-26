@@ -1,0 +1,49 @@
+﻿@model EmployeeDirectory.Models.Employee
+
+<style>
+    .btn {
+        padding: 8px 14px;
+        border-radius: 6px;
+        border: none;
+        cursor: pointer;
+        font-weight: 500;
+        text-decoration: none;
+        display: inline-block;
+        transition: 0.3s;
+    }
+
+    .btn-reset {
+        background-color: #6B7284;
+        color: white;
+    }
+
+        .btn-reset:hover {
+            background-color: #4b5563;
+            color: white;
+        }
+
+    .details-box {
+        padding: 15px;
+        border: 1px solid #E5E7EB;
+        width: 320px;
+        border-radius: 8px;
+        background-color: #fff;
+    }
+</style>
+
+<h2 style="color:#1B3A6B;">Employee Details</h2>
+
+<div class="details-box">
+
+    <p><strong>Id:</strong> @Model.Id</p>
+    <p><strong>Name:</strong> @Model.Name</p>
+    <p><strong>Department:</strong> @Model.Department</p>
+    <p><strong>Salary:</strong> @Model.Salary</p>
+
+</div>
+
+<br />
+
+<a href="/Employee/Index" class="btn btn-reset">
+    ← Back to List
+</a>
