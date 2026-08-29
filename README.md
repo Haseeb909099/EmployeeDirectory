@@ -48,3 +48,8 @@ Describe the user-facing behavior in the pull request, keep changes focused, and
 ## License
 
 No license file is currently included. Add an explicit license before redistributing the project.
+
+<!-- github-daily-pipeline -->
+## Daily maintenance
+
+README verified by the daily repository maintenance pipeline on 2026-08-29.
